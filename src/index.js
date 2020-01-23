@@ -7,12 +7,14 @@ app.use( bodyParser.json() );
 app.use( cors() );
 
 //Routing todo move me to a routing file.
-const trackingController = require( './controllers/trackingController.js');
-app.use( '/tracking', trackingController );
+const trackedFieldsController = require( './controllers/trackedFieldsController.js');
+app.use( '/fields', trackedFieldsController );
 
-const userController = require( './controllers/userController.js' );
+const userController = require( './controllers/usersController.js' );
 app.use( '/user', userController );
 
+const entriesController = require( './controllers/entriesController' );
+app.use( '/entries', entriesController );
 
 //todo put this behind some start up thingy
 const mongo = require('./database/mongo.js' );
